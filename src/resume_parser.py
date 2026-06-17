@@ -1,8 +1,9 @@
 
-from pypdf import PdfReader
 from pathlib import Path
+from pypdf import PdfReader
 import json
 import re
+
 
 SKILLS = [
     "python",
@@ -22,79 +23,122 @@ SKILLS = [
     "aws",
     "gcp",
     "airflow",
-    "docker compose",
-    "rest api",
     "langchain",
     "llama",
+    "ollama",
+    "rest api",
+    "microservices"
 ]
 
-def extract_text(pdf_path):
-    reader = PdfReader(pdf_path)
 
-    text = ""
+class ResumeParser:
 
-    for page in reader.pages:
-        page_text = page.extract_text()
+    def __init__(self, resume_path="resumes/master_resume.pdf"):
+        self.resume_path = Path(resume_path)
 
-        if page_text:
-            text += page_text.lower() + "\n"
+        Path("output").mkdir(
+            parents=True,
+            exist_ok=True
+        )
 
-    return text
+    def extract_text(self):
 
+        if not self.resume_path.exists():
+            raise FileNotFoundError(
+                f"Resume not found: {self.resume_path}"
+            )
 
-def extract_skills(text):
+        reader = PdfReader(str(self.resume_path))
 
-    found_skills = []
+        text_parts = []
 
-    for skill in SKILLS:
+        for page in reader.pages:
 
-        pattern = rf"\b{re.escape(skill)}\b"
+            page_text = page.extract_text()
 
-        if re.search(pattern, text):
-            found_skills.append(skill)
+            if page_text:
+                text_parts.append(page_text)
 
-    return sorted(list(set(found_skills)))
+        return "\n".join(text_parts).lower()
 
+    def save_resume_text(self, text):
 
-def save_skills(skills):
+        with open(
+            "output/resume_text.txt",
+            "w",
+            encoding="utf-8"
+        ) as f:
 
-    Path("output").mkdir(exist_ok=True)
+            f.write(text)
 
-    output = {
-        "skills": skills,
-        "total_skills": len(skills)
-    }
+    def extract_skills(self, text):
 
-    with open("output/skills.json", "w") as f:
-        json.dump(output, f, indent=4)
+        found_skills = set()
 
-    return output
+        for skill in SKILLS:
 
+            pattern = rf"\b{re.escape(skill)}\b"
 
-def main():
+            if re.search(pattern, text):
+                found_skills.add(skill)
 
-    resume_path = "resumes/master_resume.pdf"
+        return sorted(list(found_skills))
 
-    if not Path(resume_path).exists():
-        print(f"Resume not found: {resume_path}")
-        return
+    def save_skills(self, skills):
 
-    text = extract_text(resume_path)
+        data = {
+            "skills": skills,
+            "total_skills": len(skills)
+        }
 
-    skills = extract_skills(text)
+        with open(
+            "output/skills.json",
+            "w",
+            encoding="utf-8"
+        ) as f:
 
-    result = save_skills(skills)
+            json.dump(
+                data,
+                f,
+                indent=4
+            )
 
-    print("\nDetected Skills:\n")
+    def run(self):
 
-    for skill in skills:
-        print(f"✓ {skill}")
+        print("Reading resume...")
 
-    print(f"\nTotal Skills Found: {result['total_skills']}")
+        text = self.extract_text()
 
-    print("\nSaved:")
-    print("output/skills.json")
+        self.save_resume_text(text)
+
+        skills = self.extract_skills(text)
+
+        self.save_skills(skills)
+
+        print("\nResume parsed successfully.\n")
+
+        print("Detected Skills:\n")
+
+        for skill in skills:
+            print(f"✓ {skill}")
+
+        print(
+            f"\nTotal Skills Found: {len(skills)}"
+        )
+
+        print("\nGenerated Files:")
+
+        print(
+            "output/resume_text.txt"
+        )
+
+        print(
+            "output/skills.json"
+        )
 
 
 if __name__ == "__main__":
-    main()
+
+    parser = ResumeParser()
+
+    parser.run()

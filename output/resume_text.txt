@@ -1,0 +1,68 @@
+yathish kumar b
+♂phone9481651565 /envel⌢peyathish.kumarb07@gmail.com /linkedinlinkedin.com/in/yathish-b-kumar/
+professional summary —
+software engineer with 4 years of experience in python development, backend engineering, distributed systems, and
+database-driven applications. experienced in designing scalable apis, automating infrastructure workflows, and developing
+containerized applications using docker, kubernetes, and ci/cd practices. strong expertise in python, sql, postgresql, git,
+and linux-based environments. currently building production-scale data engineering solutions using apache kafka, apache
+spark (pyspark), hadoop hdfs, and apache nifi with focus on real-time data processing, etl pipelines, stream analytics, and
+data lake architectures. passionate about building scalable and reliable data platforms for enterprise systems.
+technical skills
+– languages: python, sql
+– big data t echnologies: apache spark, pyspark, hadoop hdfs, apache kafka, apache nifi
+– data engineering: etl pipelines, batch processing, stream processing, data lake architecture, data quality validation,
+data warehousing concepts
+– databases: postgresql, neo4j, microsoft sql server
+– frameworks & libraries : fastapi, pytest
+– containerization & orchestration : docker, kubernetes
+– devops: ci/cd pipelines, git, github, gitlab
+– t ools: jira, confluence
+– networking: yang models, netconf, juniper automation
+experience
+software engineer
+bt e-serve pvt ltd – bengaluru, india october 2022 – present
+– designed and developed python-based backend services and rest apis for large-scale network configuration
+management systems.
+– built data processing workflows to capture, validate, transform, and persist network configuration data into postgresql
+databases.
+– automated infrastructure configuration generation using yang models, reducing manual operational effort and
+improving deployment consistency .
+– developed database synchronization mechanisms for handling dynamic configuration updates and maintaining data
+integrity .
+– integrated netconf-based telemetry and configuration data collection pipelines from network devices.
+– developed automation solutions using python to process configuration datasets and improve operational efficiency .
+– implemented automated testing frameworks using pytest and behave, improving release quality and deployment
+reliability .
+– containerized backend applications using docker and participated in ci/cd workflows for automated deployment and
+testing.
+– collaborated with cross-functional teams using agile methodologies, gitlab, jira, and confluence to deliver
+enterprise-scale software solutions.
+education
+dayananda sagar academy of t echnology and management 2018-2022
+bachelor of engineering in mechanical engineering
+jain college 2016-2018
+pre university
+asm high school 2015-2016
+x
+projects
+real-time customer analytics and fraud detection platform
+– designed and developed a production-style event-driven analytics platform using apache kafka, apache spark
+(pyspark), hadoop hdfs, and apache nifi.
+– implemented kafka producers and consumers for ingesting customer activity , payment, and order events in real time.
+– built apache nifi data flows for event ingestion, schema validation, routing, and data quality enforcement.
+– designed bronze, silver, and gold data lake layers on hadoop hdfs for raw, cleansed, and business-ready datasets.
+– developed pyspark batch and streaming jobs for customer analytics, fraud detection, and kpi generation.
+– implemented data validation and quarantine workflows to isolate invalid records and improve pipeline reliability .
+– utilized postgresql for storing aggregated business metrics and reporting datasets.
+– containerized services using docker and deployed workloads using kubernetes.
+– implemented git-based development workflows and ci/cd pipelines for automated testing and deployment.
+hackathon finalist – ai knowledge assistant
+– collaborated in a 48-hour hackathon to design and deliver an ai-powered knowledge assistant using local large
+language models (llms).
+– developed backend services for document ingestion, vector embedding generation, and retrieval-augmented
+generation (rag) workflows.
+– integrated neo4j graph database for relationship-aware knowledge retrieval and contextual question answering.
+– containerized the solution using docker and implemented a secure local inference architecture to prevent external data
+exposure.
+– delivered a functional end-to-end prototype within the hackathon timeline and demonstrated the solution to judges and
+stakeholders.
