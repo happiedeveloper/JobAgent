@@ -1,0 +1,18 @@
+{
+    "skills": [
+        "docker",
+        "fastapi",
+        "git",
+        "hadoop",
+        "kafka",
+        "kubernetes",
+        "neo4j",
+        "nifi",
+        "postgresql",
+        "pyspark",
+        "python",
+        "spark",
+        "sql"
+    ],
+    "total_skills": 13
+}
